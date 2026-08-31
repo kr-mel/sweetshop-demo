@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link class="page-favicon" rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title data-i18n="seo_title">حلويات الشام | أصالة المذاق الدمشقي العريق</title>
+    <meta name="description" content="تذوق أفضل وأجود أنواع الحلويات الشامية والدمشقية التقليدية. بقلاوة بالفستق الحلبي، كنافة نابلسية، معمول فاخر، معدة بأجود المكونات والسمن البلدي الأصيل." />
+    <meta name="keywords" content="حلويات الشام, بقلاوة شامية, كنافة نابلسية, معمول فستق, حلويات دمشقية, سمن بلدي, فستق حلبي, حلويات شرقية فاخرة, Şam Tatlıları, Antep fıstıklı baklava, künefe Ankara" />
+    <link rel="canonical" href="https://kr-mel.github.io/sweetshop-demo/" />
+
+    <!-- Open Graph (WhatsApp / Facebook / Instagram link previews) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="حلويات الشام · Şam Tatlıları" />
+    <meta property="og:title" content="حلويات الشام | أصالة المذاق الدمشقي العريق" />
+    <meta property="og:description" content="موقع تجريبي لعرض المهارات — بقلاوة بالفستق الحلبي، كنافة نابلسية، ومعمول دمشقي فاخر. توصيل وعلب هدايا ومناسبات." />
+    <meta property="og:url" content="https://kr-mel.github.io/sweetshop-demo/" />
+    <meta property="og:image" content="https://kr-mel.github.io/sweetshop-demo/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ar_AR" />
+    <meta property="og:locale:alternate" content="tr_TR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="حلويات الشام | Şam Tatlıları" />
+    <meta name="twitter:description" content="موقع تجريبي — بقلاوة، كنافة، ومعمول دمشقي فاخر." />
+    <meta name="twitter:image" content="https://kr-mel.github.io/sweetshop-demo/og-image.jpg" />
+
+    <!-- Structured data (demo / placeholder — portfolio showcase, not a real listing) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": "حلويات الشام (Demo)",
+      "image": "https://kr-mel.github.io/sweetshop-demo/og-image.jpg",
+      "url": "https://kr-mel.github.io/sweetshop-demo/",
+      "priceRange": "₺₺",
+      "servesCuisine": ["Middle Eastern", "Syrian", "Dessert"]
+    }
+    </script>
+
+    <!-- Google Fonts: Cairo (body/headers) + Amiri (classic) + Reem Kufi (titles) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Organic Film Grain Overlay -->
+    <div class="grain-overlay"></div>
+
+    <div id="app">
+      <!-- Top Premium Floating Navbar -->
+      <header class="navbar-wrapper">
+        <nav class="navbar" id="main-nav">
+          <div class="nav-logo">
+            <span class="logo-serif" data-i18n="brand_name">حلويات الشام</span>
+            <span class="logo-subtitle" data-i18n="brand_subtitle">الذوق الشامي الأصيل</span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="#hero" class="nav-link active" data-i18n="nav_home">الرئيسية</a></li>
+            <li><a href="#categories" class="nav-link" data-i18n="nav_categories">أقسامنا</a></li>
+            <li><a href="#box-builder" class="nav-link" data-i18n="nav_box_builder">صندوقك المخصص</a></li>
+            <li><a href="#products" class="nav-link" data-i18n="nav_menu">قائمة الحلويات</a></li>
+            <li><a href="#heritage" class="nav-link" data-i18n="nav_heritage">حكايتنا</a></li>
+            <li><a href="#contact" class="nav-link" data-i18n="nav_contact">تواصل معنا</a></li>
+          </ul>
+          <div class="nav-actions">
+            <!-- Language Switcher Button -->
+            <button id="lang-toggle-btn" class="btn-lang" aria-label="تبديل اللغة / Dil Değiştir">
+              Türkçe
+            </button>
+            <button id="cart-toggle-btn" class="btn-cart" aria-label="سلة المشتريات">
+              <span class="cart-icon-wrapper">
+                <svg class="cart-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                </svg>
+                <span id="cart-badge" class="cart-badge">0</span>
+              </span>
+              <span class="cart-text" data-i18n="cart_title">السلة</span>
+            </button>
+            <button class="menu-hamburger" id="hamburger-btn" aria-label="القائمة">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      <!-- Mobile Expanded Navigation Overlay -->
+      <div class="mobile-nav-overlay" id="mobile-nav-menu">
+        <ul class="mobile-nav-links">
+          <li><a href="#hero" class="mobile-nav-link" data-i18n="nav_home">الرئيسية</a></li>
+          <li><a href="#categories" class="mobile-nav-link" data-i18n="nav_categories">أقسامنا</a></li>
+          <li><a href="#box-builder" class="mobile-nav-link" data-i18n="nav_box_builder">صندوقك المخصص</a></li>
+          <li><a href="#products" class="mobile-nav-link" data-i18n="nav_menu">قائمة الحلويات</a></li>
+          <li><a href="#heritage" class="mobile-nav-link" data-i18n="nav_heritage">حكايتنا</a></li>
+          <li><a href="#contact" class="mobile-nav-link" data-i18n="nav_contact">تواصل معنا</a></li>
+        </ul>
+      </div>
+
+      <!-- Main Layout -->
+      <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+          <div class="hero-container">
+            <div class="hero-content">
+              <div class="eyebrow-pill" data-i18n="hero_eyebrow">أصالة المذاق الدمشقي العريق</div>
+              <h1 class="hero-title" data-i18n="hero_title">حلويات الشام الطازجة تُصنع بحب منذ أجيال</h1>
+              <p class="hero-subtitle" data-i18n="hero_subtitle">نأخذكم في رحلة ساحرة إلى قلب دمشق العريقة مع نكهات تجمع بين عبق التاريخ وسحر الحاضر، محضرة يدوياً بأجود أنواع السمن البلدي والفستق الحلبي المقرمش.</p>
+              <div class="hero-actions">
+                <a href="#products" class="btn btn-primary">
+                  <span data-i18n="hero_btn_menu">استكشف القائمة</span>
+                  <span class="btn-icon-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                  </span>
+                </a>
+                <a href="#box-builder" class="btn btn-secondary" data-i18n="hero_btn_builder">صمم علبتك المخصصة</a>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <div class="double-bezel-outer hero-image-container">
+                <div class="double-bezel-inner">
+                  <img id="hero-img-element" class="hero-main-img" alt="صحن حلويات شامية فاخرة مشكلة" />
+                  <div class="hero-badge">
+                    <span class="badge-accent">100%</span>
+                    <span class="badge-label" data-i18n="hero_badge_text">مكونات بلدية طبيعية</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Product Categories Bento Grid Section -->
+        <section id="categories" class="categories-section">
+          <div class="section-header">
+            <span class="section-eyebrow" data-i18n="cat_eyebrow">مجموعاتنا المختارة</span>
+            <h2 class="section-title" data-i18n="cat_title">شاهد روائع مأكولاتنا الشامية</h2>
+          </div>
+          
+          <div class="bento-grid">
+            <!-- Bento Item 1 (Baklava - Big featured) -->
+            <div class="bento-item col-span-8 row-span-2 card-baklava">
+              <div class="double-bezel-outer">
+                <div class="double-bezel-inner bento-content">
+                  <div class="bento-media-placeholder" id="bento-img-baklava"></div>
+                  <div class="bento-text">
+                    <span class="bento-tag" data-i18n="bento_tag_popular">الأكثر طلباً</span>
+                    <h3 data-i18n="bento_title_baklava">البقلاوة الملكية المشكلة</h3>
+                    <p data-i18n="bento_desc_baklava">رقائق العجين الهشة المحشوة بالفستق الحلبي الفاخر والمحلاة بقطرات العسل الصافي.</p>
+                    <a href="#products" data-category="baklava" class="bento-link"><span data-i18n="bento_btn">عرض المجموعة</span> <span>←</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Bento Item 2 (Kunafa - Medium square) -->
+            <div class="bento-item col-span-4 card-kunafa">
+              <div class="double-bezel-outer">
+                <div class="double-bezel-inner bento-content">
+                  <div class="bento-media-placeholder" id="bento-img-kunafa"></div>
+                  <div class="bento-text">
+                    <h3 data-i18n="bento_title_kunafa">الكنافة النابلسية الساخنة</h3>
+                    <p data-i18n="bento_desc_kunafa">بالجبنة الغنية الساخنة المقرمشة مع رشة من الفستق الحلبي الزاهي.</p>
+                    <a href="#products" data-category="kunafa" class="bento-link"><span data-i18n="bento_btn">عرض المجموعة</span> <span>←</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bento Item 3 (Maamoul - Medium vertical) -->
+            <div class="bento-item col-span-4 card-maamoul">
+              <div class="double-bezel-outer">
+                <div class="double-bezel-inner bento-content">
+                  <div class="bento-media-placeholder" id="bento-img-maamoul"></div>
+                  <div class="bento-text">
+                    <h3 data-i18n="bento_title_maamoul">المعمول الدمشقي الأصيل</h3>
+                    <p data-i18n="bento_desc_maamoul">مخبوز بالسمن البلدي ورائحة ماء الزهر الفواحة التي تذوب في الفم.</p>
+                    <a href="#products" data-category="maamoul" class="bento-link"><span data-i18n="bento_btn">عرض المجموعة</span> <span>←</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bento Item 4 (Gift Box - Horizontal long) -->
+            <div class="bento-item col-span-8 card-gifts">
+              <div class="double-bezel-outer">
+                <div class="double-bezel-inner bento-content">
+                  <div class="bento-media-placeholder" id="bento-img-gifts"></div>
+                  <div class="bento-text">
+                    <span class="bento-tag" data-i18n="bento_tag_gift">تغليف فاخر</span>
+                    <h3 data-i18n="bento_title_gifts">علب الهدايا والمناسبات</h3>
+                    <p data-i18n="bento_desc_gifts">علب معدنية وخشبية منسقة بعناية لتكون الهدية الأرقى لأحبائكم في المناسبات والأعياد.</p>
+                    <a href="#products" data-category="gifts" class="bento-link"><span data-i18n="bento_btn">عرض علب الهدايا</span> <span>←</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Unique Feature: Interactive Mixed Box Builder (Kendi Kutunu Tasarla) -->
+        <section id="box-builder" class="box-builder-section">
+          <div class="section-header">
+            <span class="section-eyebrow" data-i18n="builder_eyebrow">صمم على ذوقك</span>
+            <h2 class="section-title" data-i18n="builder_title">صانع علبة حلويات الشام المخصصة</h2>
+            <p class="section-subtitle" data-i18n="builder_subtitle">اختر حجم العلبة التي ترغب بها، وامزج حلوياتك المفضلة بنسب مئوية مخصصة لتخلق علبتك الفريدة.</p>
+          </div>
+
+          <div class="builder-container">
+            <!-- Left Side: Interactive Platter Visualization -->
+            <div class="builder-visualization">
+              <div class="double-bezel-outer visual-box-outer">
+                <div class="double-bezel-inner visual-box-inner">
+                  <div class="box-3d-wrapper">
+                    <!-- Dynamic Plate Circle filled with colors representing sweets percentages -->
+                    <div class="platter-circle" id="platter-circle-visual">
+                      <div class="platter-empty-text" id="platter-empty-msg" data-i18n="builder_empty_visual">العلبة فارغة حالياً. أضف الحلويات لتصميم طلبيتك المخصصة!</div>
+                    </div>
+                  </div>
+                  <div class="builder-status-row">
+                    <div class="status-indicator">
+                      <span data-i18n="builder_fill_status">نسبة الامتلاء:</span>
+                      <span class="status-percent" id="builder-total-percent">0%</span>
+                    </div>
+                    <div class="status-indicator">
+                      <span data-i18n="builder_price">السعر التقريبي:</span>
+                      <span class="status-price" id="builder-calculated-price">0 ل.ت</span>
+                    </div>
+                  </div>
+                  <!-- Progress bar -->
+                  <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="builder-progress-bar" style="width: 0%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Controls and sweet selection list -->
+            <div class="builder-controls">
+              <div class="size-selector-group">
+                <h4 data-i18n="builder_size_title">1. اختر حجم العلبة:</h4>
+                <div class="size-buttons">
+                  <button class="btn-size active" data-size="1kg" data-price="1300">
+                    <span class="size-title" data-i18n="size_1kg_title">علبة بوزن 1 كغ</span>
+                    <span class="size-desc" data-i18n="size_1kg_price">1300 ل.ت</span>
+                  </button>
+                  <button class="btn-size" data-size="2kg" data-price="2400">
+                    <span class="size-title" data-i18n="size_2kg_title">علبة بوزن 2 كغ</span>
+                    <span class="size-desc" data-i18n="size_2kg_price">2400 ل.ت</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="sweets-selector-group">
+                <h4 data-i18n="builder_sweets_title">2. حدد نسب المكونات (المجموع يجب أن يساوي 100%):</h4>
+                <div class="builder-sweets-list" id="builder-sweets-items">
+                  <!-- Dynamically injected items with percentages -->
+                </div>
+              </div>
+
+              <button id="builder-add-to-cart-btn" class="btn btn-primary btn-block" disabled>
+                <span data-i18n="builder_add_btn">أضف علبتك المخصصة للسلة</span>
+                <span class="btn-icon-circle">🛒</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Menu / Interactive Catalog Section -->
+        <section id="products" class="products-section">
+          <div class="section-header">
+            <span class="section-eyebrow" data-i18n="menu_eyebrow">قائمة الطلبات</span>
+            <h2 class="section-title" data-i18n="menu_title">اختر من أشهى أطباقنا اليوم</h2>
+            <p class="section-subtitle" data-i18n="menu_subtitle">نوفر لكم تشكيلة واسعة من الحلويات الطازجة المحضرة يومياً. حدد الفئة واستمتع بالتصفح.</p>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="filter-tabs-container">
+            <div class="filter-tabs">
+              <button class="filter-tab active" data-filter="all" data-i18n="filter_all">الكل</button>
+              <button class="filter-tab" data-filter="baklava" data-i18n="filter_baklava">بقلاوة فاخرة</button>
+              <button class="filter-tab" data-filter="kunafa" data-i18n="filter_kunafa">كنافة طازجة</button>
+              <button class="filter-tab" data-filter="maamoul" data-i18n="filter_maamoul">المعمول والشرقيات</button>
+              <button class="filter-tab" data-filter="gifts" data-i18n="filter_gifts">صناديق الهدايا</button>
+            </div>
+          </div>
+
+          <!-- Products Grid -->
+          <div class="products-grid" id="products-grid-container">
+            <!-- Dynamic products will be injected here by main.js -->
+          </div>
+        </section>
+
+        <!-- Heritage / Story Section -->
+        <section id="heritage" class="heritage-section">
+          <div class="heritage-container">
+            <div class="heritage-visual">
+              <div class="double-bezel-outer heritage-image-container">
+                <div class="double-bezel-inner">
+                  <img id="heritage-img-element" class="heritage-main-img" alt="صناعة الحلويات الدمشقية يدوياً" />
+                </div>
+              </div>
+            </div>
+            <div class="heritage-content">
+              <div class="eyebrow-pill" data-i18n="heritage_eyebrow">قصة عراقتنا وأصالتنا</div>
+              <h2 class="heritage-title" data-i18n="heritage_title">شغف يتوارثه الأجيال لتقديم المذاق الدمشقي الحقيقي</h2>
+              <p class="heritage-prose" data-i18n="heritage_prose_1">في "حلويات الشام"، لا نقوم فقط بصناعة الحلويات، بل نحافظ على إرث ثقافي يمتد لقرون من أسواق دمشق العريقة ومحلاتها التي ملأت رائحة سمنها البلدي وهيلها الأزقة القديمة.</p>
+              <p class="heritage-prose" data-i18n="heritage_prose_2">كل قطعة نقدمها لكم مصنوعة يدوياً بالكامل بدقة متناهية، نستخدم فيها السمن الحيواني النقي 100%، وأفضل حبات الفستق الحلبي الأخضر المنتقى حبة فحبة، وقطرات القطر الممزوج بماء الزهر الدمشقي الطبيعي، لنضمن لكم جودة وطعماً لا ينسى.</p>
+              
+              <!-- Core features icons grid -->
+              <div class="heritage-features">
+                <div class="h-feature">
+                  <div class="h-feature-icon">🌿</div>
+                  <div class="h-feature-text">
+                    <h4 data-i18n="h_feat_1_title">مكونات طبيعية بالكامل</h4>
+                    <p data-i18n="h_feat_1_desc">خالية من المواد الحافظة والزيوت المهدرجة.</p>
+                  </div>
+                </div>
+                <div class="h-feature">
+                  <div class="h-feature-icon">✨</div>
+                  <div class="h-feature-text">
+                    <h4 data-i18n="h_feat_2_title">حرفية يدوية عريقة</h4>
+                    <p data-i18n="h_feat_2_desc">تُصنع بأيدي أمهر الخبراء الدمشقيين.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Testimonials / Quotes Section -->
+        <section class="testimonials-section">
+          <div class="testimonials-container">
+            <div class="quote-icon">“</div>
+            <blockquote class="testimonial-blockquote">
+              <p id="current-quote">"الحلويات تذكرني بأسواق الشام القديمة، السمن البلدي طعمه واضح جداً وجودة الفستق لا يعلى عليها. فعلاً أفضل بقلاوة تذوقتها خارج سوريا."</p>
+              <cite class="testimonial-author" id="current-author">أبو مازن الدمشقي — خبير تذوق حلويات</cite>
+            </blockquote>
+            <!-- Quote pagination indicators -->
+            <div class="testimonial-dots" id="quote-dots">
+              <span class="dot active" data-index="0"></span>
+              <span class="dot" data-index="1"></span>
+              <span class="dot" data-index="2"></span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact & Branch Details Section -->
+        <section id="contact" class="contact-section">
+          <div class="section-header">
+            <span class="section-eyebrow" data-i18n="contact_eyebrow">تواصل معنا</span>
+            <h2 class="section-title" data-i18n="contact_title">نسعد بخدمتكم وتلبية طلباتكم الخاصة</h2>
+            <p class="section-subtitle" data-i18n="contact_subtitle">لطلب كميات المناسبات الكبرى، أو للاستفسار عن الشحن والتسليم، يمكنك مراسلتنا مباشرة.</p>
+          </div>
+
+          <div class="contact-container">
+            <!-- Form Block -->
+            <div class="contact-form-wrapper">
+              <div class="double-bezel-outer">
+                <div class="double-bezel-inner card-form-inner">
+                  <h3 data-i18n="form_title">أرسل استفسارك</h3>
+                  <form id="enquiry-form" class="enquiry-form">
+                    <div class="form-group">
+                      <label for="user-name" data-i18n="form_label_name">الاسم الكريم</label>
+                      <input type="text" id="user-name" name="name" required data-i18n-ph="ph_name" placeholder="مثال: أحمد الشامي" />
+                    </div>
+                    <div class="form-group">
+                      <label for="user-phone" data-i18n="form_label_phone">رقم الجوال (مع رمز البلد)</label>
+                      <input type="tel" id="user-phone" name="phone" required data-i18n-ph="ph_phone" placeholder="مثال: +90 500 000 00 00" />
+                    </div>
+                    <div class="form-group">
+                      <label for="enquiry-type" data-i18n="form_label_type">نوع الطلب</label>
+                      <select id="enquiry-type" name="type">
+                        <option value="general" data-i18n="form_opt_1">استفسار عام</option>
+                        <option value="catering" data-i18n="form_opt_2">طلب بوفيه مناسبات وأعراس</option>
+                        <option value="gift-bulk" data-i18n="form_opt_3">طلب كميات شركات وهدايا</option>
+                        <option value="feedback" data-i18n="form_opt_4">اقتراحات وملاحظات</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="user-message" data-i18n="form_label_message">تفاصيل الاستفسار</label>
+                      <textarea id="user-message" name="message" rows="4" required data-i18n-ph="ph_message" placeholder="يرجى كتابة تفاصيل طلبك هنا..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                      <span data-i18n="form_btn">إرسال الاستفسار</span>
+                      <span class="btn-icon-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                        </svg>
+                      </span>
+                    </button>
+                    <p class="form-kvkk" data-i18n="form_kvkk">بإرسالك النموذج، توافق على معالجة بياناتك للرد على استفسارك فقط، وفق قانون حماية البيانات (KVKK).</p>
+                  </form>
+                  <div id="form-success-msg" class="form-success-toast hidden">
+                    <span class="success-icon">✓</span>
+                    <span data-i18n="form_success_text">تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Branch Details Block -->
+            <div class="contact-info-wrapper">
+              <div class="info-card">
+                <h3 data-i18n="info_title">أوقات العمل وفروعنا</h3>
+                <p class="info-p" data-i18n="info_subtitle">نستقبلكم يومياً لنقدم لكم طعم السعادة الطازج.</p>
+                
+                <div class="info-item">
+                  <div class="info-item-icon">📍</div>
+                  <div class="info-item-text">
+                    <h4 data-i18n="info_branch1_title">الفرع الأول</h4>
+                    <p id="branch1-address"></p>
+                    <a id="branch1-map" href="#" target="_blank" rel="noopener" class="info-map-link" data-i18n="info_map_link">📌 عرض الموقع على الخريطة</a>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-item-icon">📍</div>
+                  <div class="info-item-text">
+                    <h4 data-i18n="info_branch2_title">الفرع الثاني</h4>
+                    <p id="branch2-address"></p>
+                    <a id="branch2-map" href="#" target="_blank" rel="noopener" class="info-map-link" data-i18n="info_map_link">📌 عرض الموقع على الخريطة</a>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-item-icon">🕒</div>
+                  <div class="info-item-text">
+                    <h4 data-i18n="info_hours_title">أوقات العمل الرسمية</h4>
+                    <p id="hours-text"></p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-item-icon">📞</div>
+                  <div class="info-item-text">
+                    <h4 data-i18n="info_contact_title">الاتصال والطلب المباشر</h4>
+                    <p id="phone-text"></p>
+                    <p id="whatsapp-text"></p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-item-icon">📦</div>
+                  <div class="info-item-text">
+                    <h4 data-i18n="info_shipping_title">الشحن والتوصيل</h4>
+                    <p id="shipping-text"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-brand">
+            <span class="footer-logo" data-i18n="brand_name">حلويات الشام</span>
+            <span class="footer-logo-subtitle" data-i18n="brand_subtitle">الذوق الشامي الأصيل</span>
+            <p data-i18n="footer_brand_desc">نصنع الحلويات الدمشقية بأصالتها ونكهتها العريقة لتصلكم طازجة وفاخرة أينما كنتم.</p>
+          </div>
+          <div class="footer-links-group">
+            <h4 data-i18n="footer_links_title">روابط سريعة</h4>
+            <ul>
+              <li><a href="#hero" data-i18n="nav_home">الرئيسية</a></li>
+              <li><a href="#categories" data-i18n="nav_categories">أقسامنا</a></li>
+              <li><a href="#box-builder" data-i18n="nav_box_builder">صندوقك المخصص</a></li>
+              <li><a href="#products" data-i18n="nav_menu">المنتجات</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact-group">
+            <h4 data-i18n="footer_contact_title">تواصل فوري</h4>
+            <p><span data-i18n="footer_wa">واتساب:</span> <a id="footer-wa" href="#" target="_blank" rel="noopener" class="footer-wa" dir="ltr"></a></p>
+            <p><span data-i18n="footer_phone_label">الهاتف:</span> <a id="footer-phone" href="#" class="footer-wa" dir="ltr"></a></p>
+            <p><span data-i18n="footer_insta_label">انستغرام:</span> <a id="footer-insta" href="#" target="_blank" rel="noopener" class="footer-wa"></a></p>
+            <div class="footer-socials">
+              <a id="footer-insta-icon" href="#" target="_blank" rel="noopener" aria-label="انستغرام" class="social-icon">
+                <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+              </a>
+              <a id="footer-fb-icon" href="#" target="_blank" rel="noopener" aria-label="فيسبوك" class="social-icon">
+                <svg viewBox="0 0 320 512" fill="currentColor" aria-hidden="true"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+              </a>
+              <a id="footer-wa-icon" href="#" target="_blank" rel="noopener" aria-label="واتساب" class="social-icon">
+                <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L3 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p data-i18n="footer_rights">© 2026 حلويات الشام الفاخرة. جميع الحقوق محفوظة. تم التطوير بكل حب لأصالة المذاق.</p>
+        </div>
+      </footer>
+
+      <!-- Slide-Over Shopping Cart Drawer -->
+      <div id="cart-drawer" class="cart-drawer-overlay">
+        <div class="cart-drawer">
+          <div class="cart-header">
+            <h3 data-i18n="cart_title">سلة المشتريات</h3>
+            <button id="cart-close-btn" class="btn-close-cart" aria-label="إغلاق السلة">✕</button>
+          </div>
+
+          <!-- Empty Cart State -->
+          <div id="cart-empty-state" class="cart-empty">
+            <div class="empty-icon">🛒</div>
+            <h4 data-i18n="cart_empty_title">سلتك فارغة حالياً</h4>
+            <p data-i18n="cart_empty_desc">تصفح قائمة الحلويات وأضف ما تشتهيه من أطباقنا الفاخرة.</p>
+            <a href="#products" id="btn-browse-sweets" class="btn btn-primary" data-i18n="cart_empty_btn">تصفح المنتجات</a>
+          </div>
+
+          <!-- Active Cart Content -->
+          <div id="cart-active-content" class="cart-content-wrapper hidden">
+            <!-- Cart Items Scroll Area -->
+            <div class="cart-items" id="cart-items-container">
+              <!-- Injected by main.js -->
+            </div>
+
+            <!-- Cart Footer Calc and Checkout -->
+            <div class="cart-footer">
+              <div class="cart-summary-row">
+                <span data-i18n="cart_subtotal">المجموع الفرعي:</span>
+                <span id="cart-subtotal" class="summary-value">0 ل.ت</span>
+              </div>
+              <div class="cart-summary-row">
+                <span data-i18n="cart_total_weight">الوزن التقريبي الإجمالي:</span>
+                <span id="cart-total-weight" class="summary-value">0 كغ</span>
+              </div>
+              <div class="cart-summary-row promo-shipping">
+                <span data-i18n="cart_shipping">التوصيل:</span>
+                <span class="free-shipping" data-i18n="cart_shipping_desc">شحن مبرد سريع (حسب العنوان)</span>
+              </div>
+              
+              <button id="cart-checkout-btn" class="btn btn-primary btn-block btn-checkout">
+                <span data-i18n="cart_btn_checkout">إتمام الطلب عبر واتساب</span>
+                <span class="btn-icon-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="wa-btn-icon">
+                    <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L3 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick View / Product Detail Modal -->
+      <div id="product-modal" class="modal-overlay">
+        <div class="modal-card">
+          <button id="modal-close-btn" class="btn-close-modal">✕</button>
+          <div class="modal-content" id="modal-content-container">
+            <!-- Dynamically loaded content -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Feedback Toast (Notification popup) -->
+      <div id="toast" class="toast-notification">
+        <span id="toast-message"></span>
+      </div>
+
+    </div>
+
+    <!-- Script loading -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
