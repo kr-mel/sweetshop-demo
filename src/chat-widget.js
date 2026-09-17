@@ -12,8 +12,8 @@ const UI = {
     placeholder: 'اكتب رسالتك…',
     send: 'إرسال',
     greeting: 'أهلاً وسهلاً! 🌰 أنا سامي من حلويات الشام. كيف فيني أساعدك اليوم؟ بتحب تعرف عن البقلاوة، الكنافة، أو علب الهدايا؟',
-    error: 'عذراً، صار خطأ مؤقت. جرّب مرة ثانية أو تواصل معنا واتساب.',
-    offline: 'لإتمام طلبك أو لأي تفاصيل إضافية، تواصل معنا مباشرة على واتساب: ',
+    error: 'عذراً، صار خطأ مؤقت. جرّب مرة ثانية 🙏',
+    offline: 'هذا عرض تجريبي — الطلب والتواصل غير مفعّلين في هذه النسخة.',
   },
   tr: {
     title: 'Sami · Şam Tatlıları',
@@ -22,8 +22,8 @@ const UI = {
     placeholder: 'Mesajınızı yazın…',
     send: 'Gönder',
     greeting: 'Hoş geldiniz! 🌰 Ben Şam Tatlıları’ndan Sami. Size nasıl yardımcı olabilirim? Baklava, künefe veya hediye kutuları hakkında bilgi almak ister misiniz?',
-    error: 'Üzgünüm, geçici bir hata oluştu. Tekrar deneyin veya WhatsApp’tan yazın.',
-    offline: 'Siparişiniz veya ek detaylar için doğrudan WhatsApp’tan bize ulaşın: ',
+    error: 'Üzgünüm, geçici bir hata oluştu. Lütfen tekrar deneyin 🙏',
+    offline: 'Bu bir demo — sipariş ve iletişim bu sürümde etkin değildir.',
   },
   en: {
     title: 'Sami · Şam Tatlıları',
@@ -32,8 +32,8 @@ const UI = {
     placeholder: 'Type your message…',
     send: 'Send',
     greeting: 'Welcome! 🌰 I’m Sami from Şam Tatlıları. How can I help you today? Want to know about our baklava, kunafa, or gift boxes?',
-    error: 'Sorry, a temporary error occurred. Please try again or reach us on WhatsApp.',
-    offline: 'To place your order or for more details, reach us directly on WhatsApp: ',
+    error: 'Sorry, a temporary error occurred. Please try again 🙏',
+    offline: 'This is a demo — ordering and contact are disabled in this version.',
   },
 }
 
@@ -61,19 +61,19 @@ const DEMO_KB = {
     en: MENU_INTRO.en + menuText('en'),
   },
   hours: {
-    ar: 'دوامنا يومياً 🕖 الفرع الأول 07:30–22:30 · الفرع الثاني 07:00–21:00.',
-    tr: 'Çalışma saatleri 🕖 her gün · 1. Şube 07:30–22:30 · 2. Şube 07:00–21:00.',
-    en: 'Open daily 🕖 Branch 1: 07:30–22:30 · Branch 2: 07:00–21:00.',
+    ar: 'مواعيد العمل هنا تجريبية للعرض فقط 🕖',
+    tr: 'Çalışma saatleri yalnızca gösterim amaçlıdır 🕖',
+    en: 'Opening hours here are for demo purposes only 🕖',
   },
   location: {
-    ar: 'عنا فرعين 📍 (عناوين تجريبية للعرض). للعنوان الدقيق تواصل معنا.',
-    tr: 'İki şubemiz var 📍 (gösterim amaçlı adresler). Kesin adres için bize yazın.',
-    en: 'We have two branches 📍 (demo addresses). Contact us for the exact address.',
+    ar: 'هذا عرض تجريبي 📍 لا يوجد عنوان أو موقع حقيقي.',
+    tr: 'Bu bir demo 📍 gerçek adres veya konum yoktur.',
+    en: 'This is a demo 📍 no real address or location.',
   },
   delivery: {
-    ar: 'عنا توصيل محلي سريع 🚚 وشحن مبرّد وآمن لكل المناطق للمحافظة على الجودة. للتفاصيل حسب منطقتك راسلنا واتساب.',
-    tr: 'Hızlı yerel teslimat 🚚 ve tüm bölgelere güvenli soğutmalı kargo. Bölgenize göre detaylar için WhatsApp’tan yazın.',
-    en: 'Fast local delivery 🚚 plus safe refrigerated shipping nationwide. For details by area, message us on WhatsApp.',
+    ar: 'عنا توصيل محلي وشحن مبرّد للحفاظ على الجودة (وصف تجريبي للعرض) 🚚',
+    tr: 'Yerel teslimat ve soğuk zincir kargo (gösterim amaçlı açıklama) 🚚',
+    en: 'Local delivery and refrigerated shipping (demo description) 🚚',
   },
 }
 
@@ -92,11 +92,10 @@ function demoReply(text, lang) {
       return DEMO_KB[intent.key][lang] || DEMO_KB[intent.key].ar
     }
   }
-  return null // لا تطابق → سيُقترح واتساب
+  return null // لا تطابق → تُعرض رسالة العرض التجريبي
 }
 
 export function initChatWidget() {
-  const waNumber = (SITE_CONFIG.whatsapp || '').replace(/[^\d]/g, '')
   let lang = detectLang()
   let t = UI[lang]
   let open = false
@@ -201,29 +200,15 @@ export function initChatWidget() {
     history.push({ role: 'user', text })
     field.value = ''
 
-    // لا يوجد رابط API بعد → الوضع التجريبي (دماغ محلي + واتساب للطلبات)
+    // نسخة بورتفوليو تجريبية: دماغ محلي فقط، بدون رقم/واتساب/تواصل حقيقي.
     if (!SITE_CONFIG.chatApiUrl) {
       const typing = addTyping()
       await new Promise((r) => setTimeout(r, 600)) // إحساس طبيعي بالكتابة
       typing.remove()
       const answer = demoReply(text, lang)
-      if (answer) {
-        addMessage(answer, 'bot')
-        history.push({ role: 'model', text: answer })
-      } else {
-        const el = addMessage(t.offline + (SITE_CONFIG.whatsapp || ''), 'bot')
-        const waLink = waNumber ? `https://wa.me/${waNumber}` : ''
-        if (waLink) {
-          const a = document.createElement('a')
-          a.href = waLink
-          a.target = '_blank'
-          a.rel = 'noopener'
-          a.className = 'sami-wa-link'
-          a.textContent = '💬 WhatsApp'
-          el.appendChild(document.createElement('br'))
-          el.appendChild(a)
-        }
-      }
+      const reply = answer || t.offline
+      addMessage(reply, 'bot')
+      history.push({ role: 'model', text: reply })
       busy = false
       return
     }
