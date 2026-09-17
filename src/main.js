@@ -1279,68 +1279,12 @@ function updateCartUI() {
 function handleCheckout() {
   if (cart.length === 0) return;
 
-  const orderNumber = Math.floor(1000 + Math.random() * 9000);
-  const dateStr = new Date().toLocaleDateString(currentLang === 'ar' ? 'ar-SA' : 'tr-TR');
-  
-  let msg = '';
-  if (currentLang === 'ar') {
-    msg += `*طلب جديد من متجر حلويات الشام* 👑\n`;
-    msg += `*رقم الطلب:* #${orderNumber}\n`;
-    msg += `*التاريخ:* ${dateStr}\n`;
-    msg += `---------------------------------------\n\n`;
-
-    cart.forEach((item, index) => {
-      msg += `${index + 1}. *${item.name}*\n`;
-      msg += `   - الوزن/الحجم: ${item.size}\n`;
-      if (item.isCustomBox) {
-        msg += `   - تفاصيل الخلطة المخصصة: ${item.composition.ar}\n`;
-      }
-      msg += `   - الكمية: ${item.quantity}\n`;
-      msg += `   - السعر: ${item.price * item.quantity} ل.ت\n\n`;
-    });
-  } else {
-    msg += `*Şam Tatlıları - Yeni Sipariş* 👑\n`;
-    msg += `*Sipariş No:* #${orderNumber}\n`;
-    msg += `*Tarih:* ${dateStr}\n`;
-    msg += `---------------------------------------\n\n`;
-
-    cart.forEach((item, index) => {
-      msg += `${index + 1}. *${item.name}*\n`;
-      msg += `   - Ağırlık/Boyut: ${item.size}\n`;
-      if (item.isCustomBox) {
-        msg += `   - Karışım Oranları: ${item.composition.tr}\n`;
-      }
-      msg += `   - Adet: ${item.quantity}\n`;
-      msg += `   - Fiyat: ${item.price * item.quantity} TL\n\n`;
-    });
-  }
-
-  const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const totalWeight = cart.reduce((sum, item) => {
-    let weightVal = 0.5;
-    if (item.size.includes('1.0') || item.size.includes('1 كغ') || item.size.includes('1 kg')) weightVal = 1.0;
-    else if (item.size.includes('2.0') || item.size.includes('2 كغ') || item.size.includes('2 kg')) weightVal = 2.0;
-    else if (item.size.includes('1.2')) weightVal = 1.2;
-    return sum + (weightVal * item.quantity);
-  }, 0);
-
-  if (currentLang === 'ar') {
-    msg += `---------------------------------------\n`;
-    msg += `*المجموع الفرعي:* ${subtotal} ل.ت\n`;
-    msg += `*الوزن الإجمالي التقريبي:* ${totalWeight.toFixed(1)} كغ\n\n`;
-    msg += `يرجى تأكيد الطلب لتزويدكم بتفاصيل الشحن والتوصيل المبرد السريع الدفع عند الاستلام.`;
-  } else {
-    msg += `---------------------------------------\n`;
-    msg += `*Ara Toplam:* ${subtotal} TL\n`;
-    msg += `*Toplam Yaklaşık Ağırlık:* ${totalWeight.toFixed(1)} kg\n\n`;
-    msg += `Lütfen kapıda ödemeli hızlı soğuk sevkiyat ve teslimat detayları için siparişimi onaylayın.`;
-  }
-
-  const encodedMsg = encodeURIComponent(msg);
-  const waNumber = (SITE_CONFIG.whatsapp || '').replace(/\D/g, '');
-  const waUrl = `https://wa.me/${waNumber}?text=${encodedMsg}`;
-
-  window.open(waUrl, '_blank');
+  // نسخة بورتفوليو تجريبية: لا يوجد إرسال طلب حقيقي ولا رسالة واتساب.
+  // نُظهر إشعاراً توضيحياً فقط ونفرّغ السلة.
+  const demoMsg = currentLang === 'ar'
+    ? '🛈 عرض تجريبي — إتمام الطلب غير مفعّل في هذه النسخة.'
+    : '🛈 Demo — sipariş tamamlama bu sürümde etkin değildir.';
+  showToast(demoMsg);
 }
 
 // --- PRODUCT DETAIL MODAL Quick View ---
