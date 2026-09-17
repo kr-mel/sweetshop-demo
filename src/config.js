@@ -58,9 +58,9 @@ export const SITE_CONFIG = {
     { id: '2kg', label: 'علبة بوزن 2 كغ', price: 2400 }
   ],
 
-  // بوت سامي يعمل بالوضع التجريبي المحلي فقط (بدون مفتاح، بدون سيرفر).
-  // اتركه فارغاً ⇒ يردّ من بيانات الموقع محلياً، مناسب لـ GitHub Pages.
-  chatApiUrl: ''
+  // بوت سامي متصل بـ Worker آمن (المفتاح محفوظ كـ secret على السيرفر، لا يظهر هنا).
+  // بيانات تجريبية فقط — لا يسرّب أي رقم/عنوان حقيقي. الدماغ المحلي احتياطي إن تعذّر.
+  chatApiUrl: 'https://sami-agent-bot.omarhejazipc.workers.dev'
 };
 
 export default SITE_CONFIG;
