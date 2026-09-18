@@ -60,7 +60,7 @@ export const SITE_CONFIG = {
 
   // بوت سامي متصل بـ Worker آمن (المفتاح محفوظ كـ secret على السيرفر، لا يظهر هنا).
   // بيانات تجريبية فقط — لا يسرّب أي رقم/عنوان حقيقي. الدماغ المحلي احتياطي إن تعذّر.
-  chatApiUrl: 'https://sami-agent-bot.omarhejazipc.workers.dev'
+  chatApiUrl: 'https://sami-agent-api.vercel.app/api/chat'
 };
 
 export default SITE_CONFIG;
